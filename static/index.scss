@@ -1,10 +1,12 @@
+@import 'variables.scss';
+
 .bodyContainer {
-	width: 900px;
+	width: $page-width;
 	height: 90%;
 	margin: auto;
 
 	.mainBody {
-		width: 900px;
+		width: $page-width;
 		margin-top: 25px;
 		margin-bottom: 45px;
 		border-style: solid;
@@ -15,7 +17,7 @@
 		float: left;
 	
 		#mainText {
-			width: 600px;
+			width: 2/3*$page-width;
 			margin: auto;
 	
 			h1 {

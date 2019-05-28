@@ -1,5 +1,7 @@
+@import 'variables.scss';
+
 .header {
-	width: 900px;
+	width: $page-width;
 	border-style: solid;
 	border-radius: 10px;
 	border-width: 15px;
@@ -18,18 +20,18 @@
 	}
 
 	.menuContainer {
-		width: 900px;
+		width: $page-width;
 		float: left;
 		text-align: left;
 		border-radius: 5px;
-		border: 1px solid #AB2240;
-		background: #AB2240;
-		background-image: linear-gradient(to bottom, #AB2240, #AB2240);
-		box-shadow: 0px 1px 3px #666666;
+		border: 1px solid $theme-color;
+		background: $theme-color;
+		background-image: linear-gradient(to bottom, $theme-color, $theme-color);
+		box-shadow: 0px 1px 3px $shadow-color;
 		margin-top: 10px;
 
 		.menu {
-			width: 850px;
+			width: $page-width - 50px;
 
 			ul {
 				margin: auto;
@@ -45,7 +47,7 @@
 					a {
 						color: white;
 						padding: 7px;
-						text-shadow: 0px -1px 0px #666666;
+						text-shadow: 0px -1px 0px $shadow-color;
 						text-align: center;
 						font-size: 14pt;
 						text-decoration: none;
@@ -75,8 +77,8 @@
 
 							a {
 								text-decoration: none;
-								color: #fff;
-								text-shadow: 0px -1px 0px #666666;
+								color: white;
+								text-shadow: 0px -1px 0px $shadow-color;
 								text-align: left;
 								display: block;
 								padding-left: 10px;
@@ -88,18 +90,18 @@
 					}
 
 					&:hover > a {
-						background: #801930;
+						background: $theme-color-highlight;
 						border-style: solid;
 						border-radius: 5px;
 						border: 1px solid transparent;
-						background-image: linear-gradient(to bottom, #801930, #801930);
+						background-image: linear-gradient(to bottom, $theme-color-highlight, $theme-color-highlight);
 						text-decoration: none;
 					}
 
 					&:hover ul {
 						display: block;
 						width: 205px;
-						background: #AB2240;
+						background: $theme-color;
 						border: 1px solid transparent;
 						border-radius: 5px;
 						margin-top: 8px;

@@ -1,6 +1,8 @@
+@import 'variables.scss';
+
 html {
 	font-family: Trebuchet MS;
-	background-color: #8C5A5A;
+	background-color: $bg-color;
 	text-align: justify;
 }
 
@@ -11,7 +13,7 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color: #AB2240 !important;
+	color: $theme-color;
 }
 
 .clear {
