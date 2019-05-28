@@ -1,0 +1,126 @@
+#bodyContainer{
+	width: 1000px;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.space{
+	height: 20px;
+}
+
+div{
+	display: block;
+}
+
+#header{
+	background-color: gray;
+	padding-bottom: 10px;
+	padding-top: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
+	border-radius: 20px;
+}
+
+#logo-title{
+	margin-bottom: 50px;
+}
+
+#logo{
+	width: 350px;
+	float: left;
+}
+
+#title{
+	width: auto;
+	float: right;
+	overflow: hidden;
+}
+
+#menu{
+	display: block;
+	text-align: center;
+	background-color: #F31E1E;
+	height: auto;
+	border-radius: 10px;
+}
+
+ul{
+	list-style-type: none;
+	overflow: hidden;
+}
+
+li{
+	display: inline-block;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 5px;
+}
+
+#mainBody{
+	background-color: gray;
+	border-radius: 20px;
+	padding-left: 100px;
+	padding-right: 100px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+h1{
+	text-align: center;
+}
+
+#footer{
+	text-align: center;
+	background-color: gray;
+	border-radius: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+/* started copying from w3schools*/
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: orange;
+  border-radius: 10px;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.dropdown-content a {
+  color: black;
+  background-color: #F31E1E;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* end copying from w3 schools */
