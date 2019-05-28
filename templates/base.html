@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    {% assets "scss_all" %}
+      <link rel=stylesheet type=text/css href="{{ ASSET_URL }}">
+    {% endassets %}
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}"> -->
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+  </body>
+</html>

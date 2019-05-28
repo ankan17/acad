@@ -1,0 +1,31 @@
+.bodyContainer {
+	width: 900px;
+	height: 90%;
+	margin: auto;
+
+	.mainBody {
+		width: 900px;
+		margin-top: 25px;
+		margin-bottom: 45px;
+		border-style: solid;
+		border-radius: 10px;
+		border-width: 15px;
+		border-color: #FAFAFA;
+		background-color: #FAFAFA;
+		float: left;
+	
+		#mainText {
+			width: 600px;
+			margin: auto;
+	
+			h1 {
+				text-align: center;
+			}
+	
+			h2 {
+				text-align: left;
+				font-size: 20px;
+			}
+		}
+	}
+}
