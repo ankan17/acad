@@ -66,8 +66,6 @@ h1{
 	padding-top: 10px;
 }
 
-/* started copying from w3schools*/
-
 li a, .dropbtn {
   display: inline-block;
   color: white;
@@ -107,5 +105,3 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
-/* end copying from w3 schools */
