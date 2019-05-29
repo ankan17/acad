@@ -1,4 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, url_for, redirect, flash
+from werkzeug.security import check_password_hash
+from flask_login import LoginManager, login_user, logout_user, current_user
 from flask_assets import Environment, Bundle
 from flask_sqlalchemy import SQLAlchemy
 
@@ -11,13 +13,23 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # init SQLAlchemy so we can use it later in our models
 db = SQLAlchemy(app)
 
+login_manager = LoginManager()
+login_manager.login_view = 'login'
+login_manager.init_app(app)
+
 assets = Environment(app)
 assets.url = app.static_url_path
 scss = Bundle(
-  'common.scss', 'header.scss', 'footer.scss', 'index.scss','contact.scss',
+  'common.scss', 'header.scss', 'footer.scss', 'index.scss',
+  'contact.scss', 'login.scss',
   filters='pyscss', output='main.css'
 )
 assets.register('scss_all', scss)
+
+@login_manager.user_loader
+def load_user(user_id):
+  from models import User
+  return User.query.get(int(user_id))
 
 @app.route("/")
 def index():
@@ -54,6 +66,32 @@ def proceedings():
 @app.route("/contact")
 def contact():
 	return render_template('contact.html')
+
+@app.route("/admin")
+def admin():
+  if not current_user.is_authenticated:
+    return render_template('login.html')
+  else:
+    return render_template('messages.html', name=current_user.username)
+
+@app.route('/login', methods=['POST'])
+def login():
+  username = request.form.get('username')
+  password = request.form.get('password')
+
+  from models import User
+  user = User.query.filter_by(username=username).first()
+
+  if not user or not check_password_hash(user.password, password):
+    flash('Please check your login details and try again.')
+
+  login_user(user)
+  return redirect(url_for('admin'))
+
+@app.route('/logout')
+def logout():
+  logout_user()
+  return redirect(url_for('admin'))
 
 
 if __name__ == "__main__":
