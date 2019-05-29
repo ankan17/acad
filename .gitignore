@@ -3,3 +3,5 @@ __pycache__/
 # Flask assets
 .webassets-cache
 main.css
+
+db.sqlite

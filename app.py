@@ -1,7 +1,16 @@
 from flask import Flask, render_template
 from flask_assets import Environment, Bundle
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# init SQLAlchemy so we can use it later in our models
+db = SQLAlchemy(app)
+
 assets = Environment(app)
 assets.url = app.static_url_path
 scss = Bundle(
@@ -46,5 +55,7 @@ def proceedings():
 def contact():
 	return render_template('contact.html')
 
-if __name__ == "__main__":  
+
+if __name__ == "__main__":
+  db.create_all()
   app.run(debug=True)
