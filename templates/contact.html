@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}ISCA{% endblock %}
+{% block content %}
+	<div class="bodyContainer">
+
+		{% include 'header.html' %}
+
+		<div class="mainBody">
+			<div id="mainText">
+				<h1>Contact Us</h1><hr>
+				<p id="error"></p>
+				<form class="generalForm" method="POST">
+					<p>Name:</p> 
+					<input type="text" name="name" value=""><br>
+					<p>Email addess:</p>
+					<input type="text" name="email"value=""><br>
+					<p>Message:</p>
+					<textarea name="message" cols="50" rows="12"></textarea><br>
+					<p>Area of concern:</p>
+					<select name="emailTo">
+					  <option value="conference">Conference</option>
+					  <option value="website">Website</option>
+					  <option value="other">Other</option>
+					</select>
+					<p>Copy of email?</p>
+					<select name="copy">
+					  <option value="yes">Yes</option>
+					  <option value="no">No</option>
+					</select>
+					<br>
+					<div class="g-recaptcha" data-sitekey="6Le8hxwTAAAAAFlqMduySAsgVqItVoy479Z3NLfl"></div>
+					<input type="submit" value="Send" name="Send"><br/>
+				</form>
+			</div>
+		</div>
+
+		<div class="clear"></div>
+
+		{% include 'footer.html' %}
+
+	</div>
+{% endblock %}

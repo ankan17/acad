@@ -5,7 +5,7 @@ app = Flask(__name__)
 assets = Environment(app)
 assets.url = app.static_url_path
 scss = Bundle(
-  'common.scss', 'header.scss', 'footer.scss', 'index.scss',
+  'common.scss', 'header.scss', 'footer.scss', 'index.scss','contact.scss',
   filters='pyscss', output='main.css'
 )
 assets.register('scss_all', scss)
@@ -41,6 +41,10 @@ def journals():
 @app.route("/proceedings")
 def proceedings():
 	return render_template('proceedings.html')
+
+@app.route("/contact")
+def contact():
+	return render_template('contact.html')
 
 if __name__ == "__main__":  
   app.run(debug=True)
