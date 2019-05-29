@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Letter from president{% endblock %}
+{% block content %}
+	<div class="bodyContainer">
+		
+		{% include 'header.html' %}
+
+		<div class="mainBody">
+			<div id="mainText">
+				<h1>Letter from our president</h1>
+				<p>Welcome! Let me introduce you to the International Society for Computers and Their Applications (ISCA). The society has two primary goals: to advance the field of computing and its applications, and to disseminate such emerging technology throughout the technical community. ISCA has a unique charter in that its purpose is to focus on the applicability of the theory of computers; as such, the society serves as a platform for the transfer of new computing concepts, innovative hardware designs, and interdisciplinary research to the community.</p>Each year, ISCA sponsors international conferences in a variety of technical areas. These conferences include:
+				<br>
+				<br>
+				<ul>
+					<li>Computers and their Applications (CATA)</li>
+					<li>Bioinformatics and Computational Biology (BICoB)</li>
+					<li>Software Engineering and Data Engineering (SEDE)</li>
+					<li>Computer Applications in Industry and Engineering (CAINE)</li>
+				</ul>Furthermore, we are continuing with our plans to move into new technical areas that will interest our society members.
+				<p>ISCA also publishes the&nbsp;
+				<b><i>International Journal of Computers and Their Applications (IJCA)</i></b>. 
+				This technical publication provides our members with fascinating articles about innovative applications of computers, ranging from new architectures for massively parallel computers to embedded distributed computers for planetary surface exploration. Professor Qiang Zhu from&nbsp;The University of Michigan serves as Editor of this publication.
+				</p>
+				<p>Our society has grown significantly over the last few years, and I am confident that this growth will continue. Many of you who have attended our conferences have realized that this society focuses on current technical issues and emphasizes applications. In effect, the mission of our society included technology transfer before it became in vogue. The conferences provide an environment for interesting discussions as well as a forum for high risk and maybe controversial topics.<br></p>
+				On behalf of the Board of Directors, I would like to invite you to become a member of ISCA and participate in the society's activities. I look forward to meeting you at one of our conferences!&nbsp;
+				<br>
+				<br>Les Miller, Ph.D.
+				<br>Iowa State University
+				<br>lmiller@cs.iastate.edu
+			    <br>Ph: 515-294-4377&nbsp;
+				<br>ISCA President&nbsp;
+				<br>
+				<br>
+
+			</div>
+		</div>
+
+		<div class="clear"></div>
+
+		{% include 'footer.html' %}
+
+	</div>
+{% endblock %}
