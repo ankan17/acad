@@ -35,7 +35,10 @@ def load_user(user_id):
 
 @app.route("/")
 def index():
-  return render_template('index.html')
+	from models import Counter
+	counter=Counter.query.first()
+	counter.visits=counter.visits+1
+	return render_template('index.html',content={'visits':counter.visits})
 
 @app.route("/letter_president")
 def letter_president():
@@ -117,4 +120,6 @@ def logout():
 
 if __name__ == "__main__":
   	db.create_all()
+  	from models import Counter
+  	counter = Counter()
   	app.run(debug=True)
