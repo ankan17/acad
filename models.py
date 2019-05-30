@@ -24,6 +24,7 @@ class Contact(UserMixin , db.Model):
 		self.copy=copy
 
 class Counter(db.Model):
+	id=db.Column(db.Integer , primary_key=True)
 	visits=db.Column(db.Integer)
 
 	def __init__(self):
