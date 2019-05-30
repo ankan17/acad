@@ -1,7 +1,33 @@
 {% extends 'base.html' %}
 {% block title %}Contact messages{% endblock %}
 {% block content %}
-{% if name %}
-Welcome {{ name }}
-{% endif %}
+<div class="bodyContainer">
+
+	{% include 'header.html'}
+
+	<div class="mainBody">
+		<div id="mainText">
+
+			{% if name %}
+			<h1>Welcome {{ name }}</h1>
+			{% endif %}
+
+			{% if contact %}
+				{% for current in contact %}
+					<h2>NAME: {{ current['name'] }}</h2><br>
+					<p>EMAIL: {{ current['email'] }}</p><br>
+					<p>MESSAGE: {{ current['message'] }}</p><br>
+					<p>EMAIL TO : {{ current['emailto'] }}</p><br>
+					<br>
+				{% endfor%}
+			{% endif %}
+
+		</div>
+	</div>
+
+	<div class="clear"></div>
+
+	{% include 'footer.html' %}
+
+</div>
 {% endblock %}
