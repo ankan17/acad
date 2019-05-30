@@ -3,21 +3,21 @@
 {% block content %}
 <div class="bodyContainer">
 
-	{% include 'header.html'}
+	{% include 'header.html' %}
 
 	<div class="mainBody">
 		<div id="mainText">
 
-			{% if name %}
-			<h1>Welcome {{ name }}</h1>
+			{% if content.name %}
+			<h1>Welcome {{ content.name }}</h1>
 			{% endif %}
 
-			{% if contact %}
-				{% for current in contact %}
-					<h2>NAME: {{ current['name'] }}</h2><br>
-					<p>EMAIL: {{ current['email'] }}</p><br>
-					<p>MESSAGE: {{ current['message'] }}</p><br>
-					<p>EMAIL TO : {{ current['emailto'] }}</p><br>
+			{% if content.contact %}
+				{% for current in content.contact %}
+					<h2>NAME: {{ current.name }}</h2>
+					<p>EMAIL: {{ current.email }}</p>
+					<p>MESSAGE: {{ current.message }}</p>
+					<p>AREA OF CONCERN : {{ current.emailto }}</p>
 					<br>
 				{% endfor%}
 			{% endif %}

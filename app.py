@@ -90,9 +90,10 @@ def admin():
 	if not current_user.is_authenticated:
 		return render_template('login.html')
 	else:
-  		response = Contact.query.all()
-  		context ={'contact':response,'name':name}
-    	return render_template('messages.html', context)
+		from models import Contact
+		response = Contact.query.all()
+		content ={'contact':response,'name':current_user.username}
+		return render_template('messages.html',content=content)
 
 @app.route('/login', methods=['POST'])
 def login():
