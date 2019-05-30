@@ -28,7 +28,7 @@ class Counter(db.Model):
 	visits=db.Column(db.Integer)
 
 	def __init__(self):
-		self.visits=0
+		self.visits = 0
 
 if __name__ == '__main__':
 	db.create_all()

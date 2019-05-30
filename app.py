@@ -36,9 +36,16 @@ def load_user(user_id):
 @app.route("/")
 def index():
 	from models import Counter
-	counter=Counter.query.first()
-	counter.visits=counter.visits+1
-	return render_template('index.html',content={'visits':counter.visits})
+	counter = Counter.query.first()
+	if not counter:
+		counter = Counter()
+
+	counter.visits = counter.visits+1
+	current_db_session = db.session.object_session(counter)
+	current_db_session.add(counter)
+	current_db_session.commit()
+
+	return render_template('index.html')
 
 @app.route("/letter_president")
 def letter_president():
@@ -72,7 +79,7 @@ def proceedings():
 def contact():
 	return render_template('contact.html')
 
-@app.route("/contact",methods=['POST'])
+@app.route("/contact", methods=['POST'])
 def contact_form():
 	name = request.form['name']
 	email = request.form['email']
@@ -81,11 +88,13 @@ def contact_form():
 	copyOfEmail = request.form['copy']
 
 	from models import Contact
-	contact = Contact(name=name,email=email,message=message,emailto=emailTo,copy=copyOfEmail)
-	db.session.add( contact )
+	contact = Contact(
+		name=name, email=email, message=message,
+		emailto=emailTo,copy=copyOfEmail
+	)
+	db.session.add(contact)
 	db.session.commit()
 
-	print(name,email,message,emailTo,copyOfEmail)
 	return render_template('contact.html')
 
 @app.route("/admin")
@@ -95,8 +104,8 @@ def admin():
 	else:
 		from models import Contact
 		response = Contact.query.all()
-		content ={'contact':response,'name':current_user.username}
-		return render_template('messages.html',content=content)
+		content = {'contact': response, 'name': current_user.username}
+		return render_template('messages.html', content=content)
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -117,11 +126,16 @@ def logout():
   logout_user()
   return redirect(url_for('admin'))
 
+@app.context_processor
+def inject_visitor_count():
+	from models import Counter
+	counter = Counter.query.first()
+	if counter:
+		return dict(visits=counter.visits)
+	else:
+		return dict(visits=0)
+
 
 if __name__ == "__main__":
-  	db.create_all()
-  	from models import Counter
-  	obj = Counter.query.all()
-  	if not obj
-  		counter = Counter()
-  	app.run(debug=True)
+		db.create_all()
+		app.run(debug=True)
