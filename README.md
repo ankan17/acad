@@ -1,10 +1,10 @@
 ## Development
 
 1. Create a virtual environment.
-2. Install the dependencies from requirements.txt.
-3. run 'python manage.py db init'
-4. run 'python manage.py db migrate'
-5. run 'python manage.py db upgrade'
+2. Install the dependencies: `pip install -r requirements.txt`.
+3. Run `python manage.py db init`.
+4. Run `python manage.py db migrate`.
+5. Run `python manage.py db upgrade`.
 6. Start the development server: `python app.py`.
 
 __Create a User__: Run `python manage.py createadminuser` 
