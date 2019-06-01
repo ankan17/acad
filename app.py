@@ -24,7 +24,7 @@ assets.url = app.static_url_path
 scss = Bundle(
   'common.scss', 'header.scss', 'footer.scss', 'index.scss',
   'contact.scss', 'login.scss',
-  filters='pyscss', output='main.css'
+  filters='pyscss', output='main.css', depends='variables.scss'
 )
 assets.register('scss_all', scss)
 
