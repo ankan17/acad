@@ -19,3 +19,18 @@ h1, h2, h3, h4, h5, h6 {
 .clear {
 	clear: both;
 }
+
+.button {
+	border-radius: 0;
+	border: 1px solid $theme-color;
+	background: $theme-color;
+	background-image: linear-gradient(to bottom, $theme-color, $theme-color);
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	box-shadow: 0px 1px 3px $shadow-color;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	color: white;
+	font-size: 18px;
+	padding: 5px 15px;
+	cursor: pointer;
+}
